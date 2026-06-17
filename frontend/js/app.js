@@ -1,12 +1,12 @@
 // ===== PAGE LOADER =====
 async function loadPages() {
-  const map = [
-    ["authWrap", "pages/auth.html"],
-    ["page-dashboard", "pages/dashboard.html"],
-    ["page-cek", "pages/cek.html"],
-    ["page-child", "pages/child.html"],
-    ["page-profil", "pages/profil.html"],
-    ["modalsMount", "pages/modals.html"],
+   const map = [
+    ["authWrap", "html/auth.html"],
+    ["page-dashboard", "html/dashboard.html"],
+    ["page-cek", "html/cek.html"],
+    ["page-child", "html/child.html"],
+    ["page-profil", "html/profil.html"],
+    ["modalsMount", "html/modals.html"],
   ];
   await Promise.all(
     map.map(async ([id, url]) => {
