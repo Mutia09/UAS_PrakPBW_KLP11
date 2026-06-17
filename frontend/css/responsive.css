@@ -1,0 +1,366 @@
+
+@media (max-width: 1024px) {
+    .sidebar {
+      width: 210px;
+    }
+    .main {
+      margin-left: 210px;
+    }
+  
+    .child-card-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .stat-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .score-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .haz-guide-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .app {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 260px;
+      transform: translateX(-100%);
+      box-shadow: none;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+    .sidebar.open {
+      transform: translateX(0);
+      box-shadow: 4px 0 24px rgba(0, 0, 0, 0.18);
+    }
+  
+    .main {
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    .page {
+      padding: 14px;
+      padding-top: 66px; 
+    }
+  
+    .mob-toggle {
+      display: flex;
+    }
+    .mob-overlay.open {
+      display: block;
+    }
+  
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  
+    .form-card {
+      padding: 16px;
+    }
+  
+    .stat-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .stat-value {
+      font-size: 22px;
+    }
+  
+    .child-card-grid {
+      grid-template-columns: 1fr;
+    }
+    .child-card-header {
+      padding: 14px 14px 10px;
+    }
+    .child-card-body {
+      padding: 0 14px 12px;
+    }
+    .child-card-footer {
+      padding: 8px 14px;
+    }
+  
+    .child-detail-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px;
+    }
+    .child-detail-name {
+      font-size: 17px;
+    }
+  
+    .child-detail-header + div,
+    [style*="justify-content: space-between"][style*="flex-wrap"] {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .tab-bar {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+    .tab-btn {
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      padding: 8px 12px;
+      font-size: 12.5px;
+    }
+  
+    .score-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+  
+    .haz-guide-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .result-hero {
+      padding: 18px 16px 14px;
+    }
+    .result-status {
+      font-size: 18px;
+    }
+    .result-desc {
+      font-size: 12.5px;
+    }
+  
+    .steps {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      gap: 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    .step-label {
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .step-line {
+      min-width: 20px;
+    }
+  
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: var(--rmd);
+    }
+    table {
+      min-width: 520px;
+    }
+    th, td {
+      padding: 8px 10px;
+    }
+  
+    .modal-overlay,
+    .overlay {
+      padding: 12px;
+      align-items: flex-end; 
+    }
+    .modal,
+    .modal-box {
+      max-width: 100%;
+      border-radius: var(--rxl) var(--rxl) 0 0;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+    .modal-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  
+    .chart-wrap {
+      height: 200px;
+    }
+  
+    .auth-card {
+      padding: 28px 20px;
+    }
+  
+    .btn-secondary,
+    .btn-danger {
+      padding: 9px 14px;
+      font-size: 12.5px;
+    }
+  
+    .toast {
+      bottom: 14px;
+      right: 14px;
+      left: 14px;
+      text-align: center;
+    }
+  
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .section-header .btn-primary {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .info-box {
+      font-size: 12.5px;
+    }
+  
+    .rec-item {
+      padding: 10px 12px;
+    }
+  
+    .back-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    #formStep3 > div[style*="flex"] {
+      flex-direction: column;
+    }
+    #formStep3 .btn-primary,
+    #formStep3 .btn-secondary {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .page {
+      padding: 10px;
+      padding-top: 62px;
+    }
+  
+    .stat-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+    .stat-card {
+      padding: 12px 12px;
+    }
+    .stat-value {
+      font-size: 20px;
+    }
+  
+    .score-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+    .score-card {
+      padding: 10px 8px;
+    }
+    .score-val {
+      font-size: 18px;
+    }
+  
+    .child-detail-name {
+      font-size: 15px;
+    }
+    .child-detail-avatar {
+      width: 46px;
+      height: 46px;
+      font-size: 20px;
+    }
+  
+
+    .form-card {
+      padding: 14px 12px;
+    }
+    .card {
+      padding: 14px 14px;
+    }
+  
+    .auth-card {
+      padding: 24px 16px;
+      border-radius: var(--rlg);
+    }
+    .auth-title {
+      font-size: 17px;
+    }
+  
+    .step-label {
+      display: none;
+    }
+    .steps {
+      justify-content: center;
+    }
+  
+    .chart-wrap {
+      height: 170px;
+    }
+  
+    .tab-btn {
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+  
+    .section-title {
+      font-size: 14px;
+    }
+  
+    .result-hero {
+      padding: 14px 12px;
+    }
+    .result-status {
+      font-size: 16px;
+    }
+  
+    .rec-icon {
+      width: 28px;
+      height: 28px;
+      font-size: 14px;
+    }
+    .rec-title {
+      font-size: 12.5px;
+    }
+    .rec-desc {
+      font-size: 11.5px;
+    }
+  
+    .user-chip {
+      padding: 6px 8px;
+    }
+  
+    .td-action {
+      padding: 6px 8px;
+      font-size: 11.5px;
+    }
+  }
+  
+  @media (max-height: 500px) and (max-width: 900px) {
+    .page {
+      padding-top: 54px;
+    }
+    .auth-wrap {
+      padding: 10px;
+      align-items: flex-start;
+      overflow-y: auto;
+    }
+    .auth-card {
+      margin: 10px auto;
+    }
+    .modal,
+    .modal-box {
+      max-height: 95vh;
+      border-radius: var(--rxl);
+    }
+    .modal-overlay,
+    .overlay {
+      align-items: center;
+    }
+  }
+  
+  @media print {
+    .mob-toggle,
+    .tab-bar,
+    .back-btn {
+      display: none !important;
+    }
+  }
+  
