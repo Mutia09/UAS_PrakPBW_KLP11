@@ -1,0 +1,114 @@
+<div class="modal-overlay" id="detailModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div
+          style="font-size: 16px; font-weight: 600; color: var(--gr800)"
+          id="modalTitle"
+        >
+          Detail pemeriksaan
+        </div>
+        <div
+          style="font-size: 12px; color: var(--gr400); margin-top: 2px"
+          id="modalDate"
+        ></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div id="modalContent"></div>
+    <div style="display: flex; gap: 10px; margin-top: 18px">
+      <button
+        class="btn-primary"
+        style="width: auto; flex: 1"
+        onclick="window.print()"
+      >
+        Cetak PDF
+      </button>
+      <button class="btn-secondary" onclick="closeModal()">Tutup</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<div id="editMeasOverlay" class="overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-title">Edit Pengukuran</div>
+      <button type="button" class="modal-close" onclick="closeEditMeas()">
+        ✕
+      </button>
+    </div>
+    <input type="hidden" id="editMeasId" />
+    <input type="hidden" id="editMeasName" />
+    <div class="modal-field">
+      <label>Tanggal Pemeriksaan</label>
+      <input type="date" id="editMeasDate" class="modal-input" />
+    </div>
+    <div class="modal-field">
+      <label>Usia (bulan)</label>
+      <input
+        type="number"
+        id="editMeasAge"
+        step="0.1"
+        min="0"
+        max="60"
+        class="modal-input"
+      />
+    </div>
+    <div class="modal-grid-2">
+      <div class="modal-field">
+        <label>Tinggi (cm)</label>
+        <input
+          type="number"
+          id="editMeasHeight"
+          step="0.1"
+          min="40"
+          max="130"
+          class="modal-input"
+        />
+      </div>
+      <div class="modal-field">
+        <label>Berat (kg)</label>
+        <input
+          type="number"
+          id="editMeasWeight"
+          step="0.1"
+          min="2"
+          max="30"
+          class="modal-input"
+        />
+      </div>
+    </div>
+    <div class="modal-field">
+      <label>Catatan (opsional)</label>
+      <textarea id="editMeasNotes" rows="2" class="modal-textarea"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button
+        type="button"
+        id="btnSaveEditMeas"
+        class="modal-btn-primary"
+        onclick="saveEditMeasurement()"
+      >
+        Simpan Perubahan
+      </button>
+      <button
+        type="button"
+        class="modal-btn-secondary"
+        onclick="closeEditMeas()"
+      >
+        Batal
+      </button>
+    </div>
+  </div>
+</div>

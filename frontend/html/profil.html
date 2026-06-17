@@ -1,0 +1,92 @@
+          <div style="max-width: 460px">
+            <div class="card" style="margin-bottom: 14px">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 16px;
+                  margin-bottom: 18px;
+                "
+              >
+                <div
+                  style="
+                    width: 58px;
+                    height: 58px;
+                    border-radius: 50%;
+                    background: var(--t50);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 22px;
+                    font-weight: 700;
+                    color: var(--t600);
+                  "
+                  id="profileAvatar"
+                >
+                  AN
+                </div>
+                <div>
+                  <div
+                    style="
+                      font-size: 17px;
+                      font-weight: 600;
+                      color: var(--gr800);
+                    "
+                    id="profileName"
+                  >
+                    Ana N.
+                  </div>
+                  <div
+                    style="font-size: 13px; color: var(--gr400)"
+                    id="profileEmail"
+                  >
+                    user@email.com
+                  </div>
+                  <div class="badge badge-green" style="margin-top: 5px">
+                    Orang Tua
+                  </div>
+                </div>
+              </div>
+              <div class="form-section-title">Ubah informasi</div>
+              <div class="form-group">
+                <label class="form-label">Nama lengkap</label
+                ><input
+                  class="form-input"
+                  id="editName"
+                  placeholder="Nama lengkap"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label
+                ><input
+                  class="form-input"
+                  id="editEmail"
+                  placeholder="Email"
+                  type="email"
+                />
+              </div>
+              <button class="btn-primary" onclick="saveProfile()">
+                Simpan perubahan
+              </button>
+            </div>
+            <div class="card">
+              <div
+                class="card-title"
+                style="margin-bottom: 10px; color: var(--r600)"
+              >
+                Zona bahaya
+              </div>
+              <div
+                style="
+                  font-size: 13px;
+                  color: var(--gr600);
+                  margin-bottom: 12px;
+                "
+              >
+                Menghapus semua data tidak dapat dibatalkan.
+              </div>
+              <button class="btn-danger" onclick="clearHistory()">
+                Hapus semua data pemeriksaan
+              </button>
+            </div>
+          </div>

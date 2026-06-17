@@ -1,0 +1,87 @@
+<div class="stat-grid" id="globalStatGrid">
+  <div class="stat-card stat-green">
+    <div class="stat-label">Total pemeriksaan</div>
+    <div class="stat-value">0</div>
+    <div class="stat-desc">Semua anak</div>
+  </div>
+  <div class="stat-card stat-red">
+    <div class="stat-label">Stunting / Risiko</div>
+    <div class="stat-value">0</div>
+    <div class="stat-desc">Perlu perhatian</div>
+  </div>
+  <div class="stat-card stat-amber">
+    <div class="stat-label">Stunting Genetik</div>
+    <div class="stat-value">0</div>
+    <div class="stat-desc">Perlu pantauan</div>
+  </div>
+  <div class="stat-card stat-blue">
+    <div class="stat-label">Normal</div>
+    <div class="stat-value">0</div>
+    <div class="stat-desc">Tumbuh baik</div>
+  </div>
+</div>
+<div class="card haz-guide-card">
+  <div class="card-title haz-guide-heading">Panduan HAZ Score</div>
+  <div class="haz-guide-grid">
+    <div class="haz-guide-item haz-guide-item--normal">
+      <div class="haz-guide-title haz-guide-title--normal">Normal &mdash; HAZ &ge; -1</div>
+      <div class="haz-guide-desc">Tinggi anak sesuai standar WHO. Pertumbuhan berjalan baik.</div>
+    </div>
+    <div class="haz-guide-item haz-guide-item--genetic">
+      <div class="haz-guide-title haz-guide-title--genetic">Stunting Genetik &mdash; HAZ -2 s/d -1</div>
+      <div class="haz-guide-desc">HAZ rendah tapi sesuai potensi genetik &mdash; faktor keturunan.</div>
+    </div>
+    <div class="haz-guide-item haz-guide-item--risk">
+      <div class="haz-guide-title haz-guide-title--risk">Risiko Stunting &mdash; HAZ -2 s/d -1</div>
+      <div class="haz-guide-desc">Tinggi mulai tertinggal standar. Perlu perbaikan gizi segera.</div>
+    </div>
+    <div class="haz-guide-item haz-guide-item--stunting">
+      <div class="haz-guide-title haz-guide-title--stunting">Stunting Patologis &mdash; HAZ &lt; -2</div>
+      <div class="haz-guide-desc">Tinggi jauh di bawah standar DAN potensi genetik &mdash; segera ke dokter.</div>
+    </div>
+  </div>
+</div>
+<div class="section-header">
+  <div>
+    <div class="section-title">Dashboard Per Anak</div>
+    <div class="section-sub" id="childCountSub">Belum ada data</div>
+  </div>
+  <button class="btn-primary" style="width:auto;padding:8px 16px;display:flex;align-items:center;gap:6px" onclick="startFreshCheck()">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#fff"
+      stroke-width="2.5"
+      width="14"
+      height="14"
+    >
+      <path d="M12 5v14M5 12h14" /></svg
+    >Tambah anak
+  </button>
+</div>
+<div class="child-card-grid" id="childCardGrid">
+  <div class="empty-state" style="grid-column: 1/-1">
+    <div class="empty-icon">
+      <svg
+        width="26"
+        height="26"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="var(--gr400)"
+        stroke-width="2"
+      >
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+      </svg>
+    </div>
+    <div class="empty-title">Belum ada anak terdaftar</div>
+    <div class="empty-desc">Mulai dengan melakukan pemeriksaan pertama</div>
+    <button
+      class="btn-primary"
+      style="width: auto; padding: 10px 24px"
+      onclick="startFreshCheck()"
+    >
+      Cek stunting pertama
+    </button>
+  </div>
+</div>
