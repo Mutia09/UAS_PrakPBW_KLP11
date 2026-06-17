@@ -86,15 +86,7 @@ uas/
 
 ## Instalasi & Menjalankan
 
-### 1. Clone / ekstrak proyek
-
-```bash
-# Jika dari zip
-unzip uas.zip
-cd uas
-```
-
-### 2. Setup Database
+### 1. Setup Database
 
 ```bash
 mysql -u root -p < backend/schema.sql
@@ -102,14 +94,14 @@ mysql -u root -p < backend/schema.sql
 
 Perintah ini akan membuat database `stuntcheck_db`, semua tabel, dan memasukkan data dummy (8 akun orang tua + 12 anak + 15 data pengukuran).
 
-### 3. Install dependensi backend
+### 2. Install dependensi backend
 
 ```bash
 cd backend
 npm install
 ```
 
-### 4. Buat file `.env`
+### 3. Buat file `.env`
 
 ```bash
 cp .env.example .env
@@ -123,7 +115,7 @@ JWT_SECRET=string_acak_minimal_32_karakter
 
 Lihat bagian [Konfigurasi Environment](#konfigurasi-environment) untuk detail lengkap.
 
-### 5. Jalankan backend
+### 4. Jalankan backend
 
 ```bash
 # Mode produksi
@@ -136,7 +128,7 @@ npm run dev
 Server berjalan di `http://localhost:3000`  
 Health check: `http://localhost:3000/api/health`
 
-### 6. Jalankan frontend
+### 5. Jalankan frontend
 
 Buka folder `frontend/` dengan **Live Server** (VS Code) atau server statis apapun pada port 5500.
 
