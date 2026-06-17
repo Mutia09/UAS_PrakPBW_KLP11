@@ -24,28 +24,6 @@ StuntCheck adalah aplikasi web untuk membantu orang tua dan tenaga kesehatan dal
 - **Dashboard**: Grafik pertumbuhan anak, status stunting, riwayat pemeriksaan
 - **Responsif**: Tampilan optimal di desktop dan mobile
 
-## Teknologi
-
-### Backend
-| Paket | Versi | Fungsi |
-|---|---|---|
-| Node.js | ≥ 18 | Runtime |
-| Express | ^5.2.1 | Web framework |
-| mysql2 | ^3.22.5 | Koneksi MySQL |
-| bcryptjs | ^3.0.3 | Hash password |
-| jsonwebtoken | ^9.0.3 | Autentikasi JWT |
-| nodemailer | ^9.0.0 | Kirim email OTP |
-| express-rate-limit | ^8.5.2 | Rate limiting |
-| dotenv | ^17.4.2 | Manajemen env |
-
-### Frontend
-- HTML5, CSS3, Vanilla JavaScript (tanpa framework)
-- Tabel referensi WHO bawaan (tidak butuh koneksi API eksternal untuk kalkulasi)
-
-### Database
-- MySQL 8+ dengan collation `utf8mb4_unicode_ci`
-
----
 
 ## Struktur Proyek
 
