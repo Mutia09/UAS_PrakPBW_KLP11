@@ -1,0 +1,239 @@
+<div class="steps">
+  <div class="step active" id="step1">
+    <div class="step-num">1</div>
+    <div class="step-label">Data anak</div>
+  </div>
+  <div class="step-line" id="line1"></div>
+  <div class="step" id="step2">
+    <div class="step-num">2</div>
+    <div class="step-label">Data orang tua</div>
+  </div>
+  <div class="step-line" id="line2"></div>
+  <div class="step" id="step3">
+    <div class="step-num">3</div>
+    <div class="step-label">Hasil</div>
+  </div>
+</div>
+<div id="formStep1">
+  <div class="info-box green" style="margin-bottom: 14px">
+    <b>📋 Langkah 1 dari 3 - Data Anak</b><br />Isi data anak dan hasil
+    pengukuran. Pastikan pengukuran <b>baru dilakukan</b> agar hasilnya akurat.
+  </div>
+  <div class="form-card">
+    <div class="form-section-title">Data anak</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Nama lengkap anak</label
+        ><input class="form-input" id="childName" placeholder="Nama anak" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Jenis kelamin</label
+        ><select class="form-input" id="childGender">
+          <option value="L">Laki-laki</option>
+          <option value="P">Perempuan</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label"
+          >Tanggal lahir <span class="form-label-hint">(opsional)</span></label
+        ><input
+          class="form-input"
+          type="date"
+          id="childDOB"
+          onchange="calcAgeFromDOB()"
+        />
+        <div class="form-hint">Isi untuk otomatis hitung usia</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label"
+          >Usia (bulan)<span
+            class="help-tip"
+            data-tip="Terisi otomatis dari tanggal lahir"
+            >?</span
+          ></label
+        >
+        <input
+          class="form-input"
+          type="number"
+          id="childAge"
+          placeholder="terisi otomatis dari tanggal lahir"
+          min="0"
+          max="60"
+          readonly
+        />
+        <div class="form-hint">0–60 bulan (0–5 tahun)</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-card">
+    <div class="form-section-title">Hasil pengukuran</div>
+    <div class="info-box blue" style="margin-bottom: 12px; font-size: 12px">
+      💡 Anak &lt;2 tahun: ukur berbaring. Anak ≥2 tahun: berdiri tegak.
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label"
+          >Tinggi badan (cm)<span
+            class="help-tip"
+            data-tip="Ukur dengan pita ukur. Kepala lurus, kaki rapat, tumit menempel dinding."
+            >?</span
+          ></label
+        ><input
+          class="form-input"
+          type="number"
+          id="childHeight"
+          placeholder="misal: 85.5"
+          step="0.1"
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label"
+          >Berat badan (kg)<span
+            class="help-tip"
+            data-tip="Timbang dengan timbangan digital. Catat hingga 1 desimal."
+            >?</span
+          ></label
+        ><input
+          class="form-input"
+          type="number"
+          id="childWeight"
+          placeholder="misal: 12.3"
+          step="0.1"
+        />
+      </div>
+    </div>
+    <div id="bmiLiveChild" style="display: none; margin-top: 4px"></div>
+    <div class="form-group" style="margin-top: 12px">
+      <label class="form-label">Tanggal pengukuran</label
+      ><input class="form-input" type="date" id="measureDate" />
+    </div>
+  </div>
+  <div style="display: flex; justify-content: flex-end">
+    <button
+      class="btn-primary"
+      style="width: auto; padding: 10px 26px"
+      onclick="nextStep(2)"
+    >
+      Lanjut ke Data Orang Tua →
+    </button>
+  </div>
+</div>
+<div id="formStep2" style="display: none">
+  <div class="info-box amber" style="margin-bottom: 14px">
+    <b>🧬 Langkah 2 dari 3 - Data Orang Tua</b><br />Tinggi orang tua digunakan
+    menghitung <b>target genetik anak (MPH)</b>.
+  </div>
+  <div class="form-card">
+    <div class="form-section-title">Tinggi badan ayah</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Tinggi badan ayah (cm)</label
+        ><input
+          class="form-input"
+          type="number"
+          id="fatherHeight"
+          placeholder="misal: 170"
+          step="0.1"
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label"
+          >Berat badan ayah (kg)
+          <span class="form-label-hint">(opsional)</span></label
+        ><input
+          class="form-input"
+          type="number"
+          id="fatherWeight"
+          placeholder="misal: 70"
+          step="0.1"
+        />
+      </div>
+    </div>
+    <div id="bmiLiveFather" style="display: none"></div>
+  </div>
+  <div class="form-card">
+    <div class="form-section-title">Tinggi badan ibu</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Tinggi badan ibu (cm)</label
+        ><input
+          class="form-input"
+          type="number"
+          id="motherHeight"
+          placeholder="misal: 158"
+          step="0.1"
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label"
+          >Berat badan ibu (kg)
+          <span class="form-label-hint">(opsional)</span></label
+        ><input
+          class="form-input"
+          type="number"
+          id="motherWeight"
+          placeholder="misal: 55"
+          step="0.1"
+        />
+      </div>
+    </div>
+    <div id="bmiLiveMother" style="display: none"></div>
+  </div>
+  <div
+    class="form-card"
+    style="background: var(--g50); border-color: var(--g100)"
+  >
+    <div
+      style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px"
+    >
+      <svg
+        width="17"
+        height="17"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="var(--g600)"
+        stroke-width="2"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 8v4M12 16h.01" />
+      </svg>
+      <span style="font-size: 13px; font-weight: 600; color: var(--g600)"
+        >Perkiraan target tinggi genetik anak</span
+      >
+    </div>
+    <div
+      id="mphPreview"
+      style="font-size: 13px; color: var(--g700); line-height: 1.7"
+    >
+      Isi tinggi ayah dan ibu untuk melihat perkiraan MPH.
+    </div>
+  </div>
+  <div style="display: flex; justify-content: space-between">
+    <button class="btn-secondary" onclick="nextStep(1)">← Kembali</button>
+    <button
+      class="btn-primary"
+      style="width: auto; padding: 10px 26px"
+      onclick="nextStep(3)"
+    >
+      Hitung Sekarang →
+    </button>
+  </div>
+</div>
+<div id="formStep3" style="display: none">
+  <div id="resultArea"></div>
+  <div style="display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap">
+    <button class="btn-secondary" onclick="nextStep(1)">Cek ulang</button>
+    <button
+      class="btn-primary"
+      style="width: auto; padding: 10px 22px"
+      onclick="window.print()"
+    >
+      Cetak / Simpan PDF
+    </button>
+    <button class="btn-secondary" onclick="goToChildAfterResult()">
+      Lihat Dashboard Anak →
+    </button>
+  </div>
+</div>
