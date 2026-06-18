@@ -132,65 +132,21 @@ router.post("/", async (req, res) => {
     const data = pickMeasurement(req.body);
     const missing = validateRequired(data);
     if (missing.length > 0) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: `Field wajib: ${missing.join(", ")}`,
-        });
-    }
-
-    if (!(await ownsChild(req.user.id, data.child_id))) {
-      return res
-        .status(403)
-        .json({
-          success: false,
-          message: "Anak tidak ditemukan atau bukan milik Anda.",
-        });
-    }
-
-    const [existing] = await db.query(
-      "SELECT id FROM measurements WHERE child_id = ? AND measure_date = ?",
-      [data.child_id, data.measure_date],
-    );
-
-    const values = [
-      data.age_months,
-      data.height_cm,
-      data.weight_kg,
-      data.bmi,
-      data.haz,
-      data.mph,
-      data.who_median,
-      data.who_minus2sd,
-      data.status,
-      data.status_label,
-      data.father_height,
-      data.father_weight,
-      data.mother_height,
-      data.mother_weight,
-      data.father_bmi,
-      data.mother_bmi,
-      data.notes,
-    ];
-
-    if (existing.length > 0) {
-      await db.query(
-        `UPDATE measurements SET
-           age_months=?, height_cm=?, weight_kg=?, bmi=?, haz=?, mph=?,
-           who_median=?, who_minus2sd=?, status=?, status_label=?,
-           father_height=?, father_weight=?, mother_height=?, mother_weight=?,
-           father_bmi=?, mother_bmi=?, notes=?
-         WHERE id=?`,
-        [...values, existing[0].id],
-      );
-      return res.json({
-        success: true,
-        data: { id: existing[0].id },
-        updated: true,
+      return res.status(400).json({
+        success: false,
+        message: `Field wajib: ${missing.join(", ")}`,
       });
     }
 
+    if (!(await ownsChild(req.user.id, data.child_id))) {
+      return res.status(403).json({
+        success: false,
+        message: "Anak tidak ditemukan atau bukan milik Anda.",
+      });
+    }
+
+    // Langsung INSERT tanpa cek duplikat,
+    // agar setiap pengukuran selalu tersimpan sebagai riwayat baru
     const [result] = await db.query(
       `INSERT INTO measurements
          (child_id, user_id, measure_date, age_months, height_cm, weight_kg,
@@ -198,7 +154,28 @@ router.post("/", async (req, res) => {
           father_height, father_weight, mother_height, mother_weight,
           father_bmi, mother_bmi, notes)
        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
-      [data.child_id, req.user.id, data.measure_date, ...values],
+      [
+        data.child_id,
+        req.user.id,
+        data.measure_date,
+        data.age_months,
+        data.height_cm,
+        data.weight_kg,
+        data.bmi,
+        data.haz,
+        data.mph,
+        data.who_median,
+        data.who_minus2sd,
+        data.status,
+        data.status_label,
+        data.father_height,
+        data.father_weight,
+        data.mother_height,
+        data.mother_weight,
+        data.father_bmi,
+        data.mother_bmi,
+        data.notes,
+      ],
     );
 
     return res
@@ -218,12 +195,10 @@ router.put("/:id", async (req, res) => {
     const data = pickMeasurement(req.body);
     const missing = validateRequired(data).filter((k) => k !== "child_id");
     if (missing.length > 0) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: `Field wajib: ${missing.join(", ")}`,
-        });
+      return res.status(400).json({
+        success: false,
+        message: `Field wajib: ${missing.join(", ")}`,
+      });
     }
 
     const [existing] = await db.query(
