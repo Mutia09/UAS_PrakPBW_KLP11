@@ -140,3 +140,6 @@ VALUES
 (9, 7, '2024-04-20', 31.0, 87.0, 11.8, 15.58, -2.20, 88.5, 95.0, 86.8, 'risk',    'Risiko Stunting',     169.0, 70.0, 158.0, 54.0, 24.51, 21.63, 'Pola makan perlu diperbaiki'),
 (9, 7, '2024-07-20', 34.0, 89.5, 12.3, 15.36, -2.05, 89.1, 97.8, 89.5, 'risk',    'Risiko Stunting',     169.0, 70.0, 158.0, 54.0, 24.51, 21.63, 'Ada peningkatan'),
 (11, 1, '2024-05-28', 51.0, 103.0, 16.5, 15.55, -0.45, 93.6,106.7, 98.0, 'normal', 'Pertumbuhan Normal',  170.0, 68.0, 157.0, 52.0, 23.53, 21.10, NULL);
+
+ALTER TABLE measurements
+DROP INDEX uq_child_date;
